@@ -9,8 +9,9 @@ Dit project is gebaseerd op het spelletje __whack-a-mole__. Je krijgt punten als
 1. Maak een nieuw scratch project.
 2. Verwijder de kat sprite en vervang de achtergrond door de Nature/forest achtergrond.
 3. Gebruik de nieuwe sprite knop om een nieuwe heks sprite toe te voegen aan het project (gebruik het Fantasy/witch1 kostuum). Nu willen we onze heks nog laten bewegen.
-4. Voeg een variabele toe voor deze sprite genaamd snelheid. Op de Stage zou de stage monitor voor deze variabele “Sprite1 snelheid” moeten tonen. Als er gewoon “snelheid” zou staan, verwijderen dan de variabele en maak ze opnieuw aan, enkel voor deze sprite. Vink het vakje af naast de snelheid blok in het Variabelen palet, zodat het niet op de Stage te zien is. De snelheid variabele zal controleren hoe snel de heks beweegt. We gebruiken hier een variabele voor, zodat we de snelheid van de heks kunnen aanpassen naargelang het spelletje verder gaat.
-5. We willen dat de heks begint te bewegen wanneer het spel start, dus maak een script zoals het volgende:
+4. Voeg een variabele toe voor deze sprite genaamd snelheid (Data groep). In de linkerbovenhoek van het scherm moet deze variabele “Sprite1 snelheid” getoond worden. Als er gewoon “snelheid” zou staan, verwijderen dan de variabele en maak deze opnieuw aan, alleen voor deze sprite.
+5. Vink het vakje af naast de snelheid blok in het Data palet, zodat het niet meer te zien is. De snelheid variabele zal controleren hoe snel de heks beweegt. We gebruiken hier een variabele voor, zodat we de snelheid van de heks kunnen aanpassen naargelang het spelletje verder gaat.
+6. We willen dat de heks begint te bewegen wanneer het spel start, dus maak een script zoals het volgende:
 
 ```scratch
 	wanneer VLAG wordt aangeklikt
@@ -22,7 +23,7 @@ Dit project is gebaseerd op het spelletje __whack-a-mole__. Je krijgt punten als
 
 ### Test Je Project
 __Klik op het groene vlaggetje__ en kijk wat je heks doet. Waarom zit ze vast aan de rand van het scherm?
-6. Om de heks niet vast te laten zitten moeten we haar laten terugkeren wanneer ze de rand van het scherm raakt. Voeg onder je neem snelheid stappen blok een keer om aan de rand blok toe.
+7. Om de heks niet vast te laten zitten moeten we haar laten terugkeren wanneer ze de rand van het scherm raakt. Voeg onder je neem snelheid stappen blok een keer om aan de rand blok toe.
 ```scratch
 	wanneer VLAG wordt aangeklikt
 	maak snelheid 5
@@ -31,7 +32,7 @@ __Klik op het groene vlaggetje__ en kijk wat je heks doet. Waarom zit ze vast aa
 		keer om aan de rand
 	(einde herhaal)
 ```
-7. Om de heks niet ondersteboven te doen kantelen pas je de draaistijl aan in de sprite samenvatting.
+8. Om de heks niet ondersteboven te doen kantelen pas je de draaistijl aan in de sprite samenvatting.
 
 ### Test Je Project
 __Klik op het groene vlaggetje__
@@ -51,9 +52,9 @@ Maak dit script voor de heks:
 ```scratch
 	wanneer VLAG wordt aangeklikt
 	herhaal
-		verbergen
+		verdwijn
 		wacht willekeurig getal tussen 2 en 5 tellen
-		toon
+		verschijn
 		wacht willekeurig getal tussen 3 en 5 tellen
 	(einde herhaal)
 ```
@@ -73,7 +74,7 @@ Om hier een spelletje van te maken, moeten we de speler iets om te doen geven. Z
 2. Voeg dit script toe aan de heks:
 ```scratch
 	wanneer op deze sprite wordt geklikt
-	verbergen
+	verdwijn
 	start geluid fairydust
 ```
 ### Test Je Project
@@ -91,7 +92,7 @@ We hebben een heks, maar nu willen we er een echt spelletje van maken! We willen
 	start geluid fairydust
 	verander score met 1
 ```
-2. Ga naar de Stage en maak een nieuwe variabele aan (deze keer enkel voor de Stage) genaamd timer. Voeg een nieuw script toe dat loopt wanneer er op het groene vlaggetje is geklikt om de timer op 30 en de score op 0 te zetten. Gebruik dan een herhaal tot blok om een seconde te wachten en de timer met 1 te verminderen. Dit zou moeten herhalen tot timer gelijk is aan 0. Op dat moment gebruiken we stop alle om het spell te stoppen.
+2. Maak een nieuwe variabele aan genaamd timer. Voeg een nieuw script toe dat loopt wanneer er op het groene vlaggetje is geklikt om de timer op 30 en de score op 0 te zetten. Gebruik dan een herhaal tot blok om een seconde te wachten en de timer met 1 te verminderen. Dit zou moeten herhalen tot timer gelijk is aan 0. Op dat moment gebruiken we stop alle om het spell te stoppen.
 ```scratch
 	wanneer VLAG wordt aangeklikt
 	maak timer 30
