@@ -10,22 +10,24 @@ In dit project maken we een vuurwerk spectakel boven de stad.
 __Laten we de benodigde beelden voor de oefening importeren__
 
 1. Begin een nieuw Scratch project. Rechtermuisklik op de kat en kies dan Verwijderen
-2. Vervang de achtergrond door buiten/stad-met-water
+2. Vervang de achtergrond door buiten/city-with-water
 3. Gebruik de __een sprite uit een bestand kiezen__ knop om een sprite van een Raket toe te voegen
 aan het project (gebruik Bronnen/Raket.png).
-4. Laat de raket verdwijnen al er op de groene
-vlag wordt geklikt.
+4. Laat de raket verdwijnen als er op de groene vlag wordt geklikt.
+
+```scratch
+	wanneer VLAG wordt aangeklikt
+	verdwijn
+```
 
 Nu willen we de raket naar de muis toe laten bewegen als er op de muis wordt geklikt.
 
 5. Voeg een wanneer spatiebalk wordt ingedrukt besturen blok, en laat hieronder de raket verschijnen en richting de muis schuiven
 
 ```scratch
-	wanneer VLAG wordt aangeklikt
-	verdwijn
 	wanneer spatiebalk wordt ingedrukt
 	verschijn
-	schuif in 1 tellen naar x: x-positie y: y-positie
+	schuif in 1 tellen naar x: muis-x y: muis-y
 ```
 		
 ###Test Je Project
@@ -34,15 +36,14 @@ __Klik op het groene vlaggetje, plaats je muis op het scherm en druk op de spati
 Verschijnt de raket en beweegt ze naar je muis toe?
 Wat gebeurt er als je beweegt en als je nogmaals de spatiebalk indrukt?
 
-6. Vuurwerk vliegt normaal gezien neit zijdelings, dus laten we ervoor zorgen dat het steeds van de bodem van het scherm naar de muis toe vliegt. Vooraleer we de raket laten verschijnen, gebruiken we de ga naar blok om ze onder de rand van het scherm te sturen, maar zo blijft ze wel horizontaal op dezelfde plaats.
+
+6. Vuurwerk vliegt normaal gezien niet zijdelings, dus laten we ervoor zorgen dat het steeds van de bodem van het scherm naar de muis toe vliegt. Voordat we de raket laten verschijnen, gebruiken we het `ga naar` blok om het vuurwerk naar de onderkant van het scherm te sturen, maar zo blijft het wel horizontaal op dezelfde plaats.
 
 ```scratch
-	wanneer VLAG wordt aangeklikt
-	verdwijn	
 	wanneer spatiebalk wordt ingedrukt
-	ga naar x: x-positie y: -200
+	ga naar x: muis-x y: -200
 	verschijn
-	schuif in 1 tellen naar x: x-positie y: y-positie
+	schuif in 1 tellen naar x: muis-x y: muis-y
 ```
 
 ###Test Je Project
@@ -50,16 +51,18 @@ __Klik op het groene vlaggetje, plaats je muis op het scherm en druk op de spati
 Vliegt de raket richting de muis vanaf de onderkant van het scherm? Wat gebeurt er als je de muis verplaatst en nogmaals op de spatiebalk drukt?
 
 7. Vanaf nu kunnen we dit ook laten afspelen door op de muis te klikken in de plaats van de spatiebalk te gebruiken. Om dit te kunnen doen, plaatsen we ons script tussen een __herhaal als muis ingedrukt__.
-Vervang dan de __wanneer spatiebalk wordt ingedrukt__ besturen blok door __wanneer VLAG wordt aangeklikt__ en teslotte zorg je ervoor dat de raket niet zichtbaar is als het geheel opstart.
+Vervang dan het __wanneer spatiebalk wordt ingedrukt__ besturen blok door __wanneer VLAG wordt aangeklikt__ en tenslotte zorg je ervoor dat de raket niet zichtbaar is als het geheel opstart.
 
 ```scratch
 	wanneer VLAG wordt aangeklikt
 	verdwijn
-	herhaal als muis ingedrukt?
-		ga naar x: x-positie y: -200
-		verschijn
-		schuif in 1 tellen naar x: x-positie y: y-positie
-	(eindig herhaal)
+	herhaal
+	  als <muis ingedrukt?> dan
+		  ga naar x: muis-x y: -200
+		  verschijn
+    	schuif in 1 tellen naar x: muis-x y: muis-y
+  	(einde als)
+	(einde herhaal)
 ```
 
 ###Test Je Project
@@ -73,39 +76,44 @@ Sla je project op.
 
 ##STAP 2: De raket laten exploderen
 
-￼1. De eerste stap om een raket te laten exploderen is het knal geluid uit Bronnen/bang te laten afspelen vooraleer de raket begint te bewegen. En dan laat je ze verbergen eens ze de muis bereikt. Om een geluid te importeren ga je naar de tab Geluiden en klik je op importeren
+￼1. De eerste stap om een raket te laten exploderen is een soort knal geluid te laten afspelen voordat de raket begint te bewegen. En dan laat je de raket verbergen wanneer hij de muis bereikt. 
 
 ```scratch
 	wanneer VLAG wordt aangeklikt
 	verdwijn
-	herhaal als muis ingedrukt?
-		ga naar x: x-positie y: -200
-		start geluid bang
-		verschijn
-		schuif in 1 tellen naar x: x-positie y: y-positie
-		verdwijn
-	(eindig herhaal)
+	herhaal
+    als <muis ingedrukt?> dan
+		  ga naar x: muis-x y: -200
+  		start geluid 'cymbal crash'
+		  verschijn
+    	schuif in 1 tellen naar x: muis-x y: muis-y
+  		verdwijn
+  	(einde als)
+	(einde herhaal)
 ```
 2. Vervolgens laat je de raket een signaal zenden op het moment dat hij explodeert. We zullen verder in deze oefening gaan luisteren of we dit signaal ontvangen.
 
 ```scratch
 	wanneer VLAG wordt aangeklikt
 	verdwijn
-	herhaal als muis ingedrukt?
-		ga naar x: x-positie y: -200
-		start geluid bang
-		verschijn
-		schuif in 1 tellen naar x: x-positie y: y-positie
-		verdwijn
-		zend signaal explodeer
-	(eindig herhaal)
+	herhaal
+    als <muis ingedrukt?> dan
+		  ga naar x: muis-x y: -200
+  		start geluid 'cymbal crash'
+		  verschijn
+    	schuif in 1 tellen naar x: muis-x y: muis-y
+  		verdwijn
+  		zend signaal explodeer
+  	(einde als)
+	(einde herhaal)
 ```
+
 ###Test Je Project
 __Klik op het groene vlaggetje.__ 
-Ga na of de raket geluid maakt en of ze verdwijnt eens ze de muis bereikt.
+Ga na of de raket geluid maakt en of hij verdwijnt wanneer hij de muis bereikt.
 
 3. Importeer een nieuwe sprite van Bronnen/vuurwerk1.png
-4. Wanneer het explodeer signaal wordt ontvangen, zou deze moeten verdwijnen en zichzelf verplaatsen naar de positie van de raket door middel van een ga naar blok, om vervolgens te verschijnen, en tot slot onzichtaar te worden een seconde later.
+4. Wanneer het explodeer signaal wordt ontvangen, zou deze moeten verdwijnen en zichzelf verplaatsen naar de positie van de raket door middel van een `ga naar` blok, om vervolgens te verschijnen, en tot slot onzichtbaar te worden een seconde later.
 
 ```scratch
 	wanneer ik signaal explodeer ontvang
@@ -128,8 +136,8 @@ Sla je project op.
 
 ```scratch
 	wanneer ik signaal explodeer ontvang
-	verdwijn	
-	zet kleur-effect op willekeurig getal tussen 1 en 200
+	verdwijn
+	zet effect kleur op willekeurig getal tussen 1 en 200
 	ga naar x: x-positie van Raket y: y-positie van Raket
 	verschijn
 	wacht 1 tellen
@@ -152,9 +160,9 @@ Heeft elke raket een explosie met een ander uiterlijk?
 
 ```scratch
 	wanneer ik signaal explodeer ontvang
-	verdwijn	
+	verdwijn
 	zet kleur-effect op willekeurig getal tussen 1 en 200
-	ga naar x: x-positie van Raket y: y-positie van Raket	
+	ga naar x: x-positie van Raket y: y-positie van Raket
 	maak grootte 5%
 	verschijn
 	herhaal 50
