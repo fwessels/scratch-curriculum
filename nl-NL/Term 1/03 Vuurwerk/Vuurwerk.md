@@ -156,7 +156,7 @@ __Klik op het groene vlaggetje.__
 
 Heeft elke raket een explosie met een ander uiterlijk?
 
-3. Als laatste, laten we iedere explosie toenemen in grootte gedurende een korte tijd. In plaats van 1 tel te wachten, zetten we de grootte van de sprite op 5% voorlareer we die laten verschijnen. En vanaf dat die verschijnt, laten we de grootte vijftig keer toenemen met 2 door middel van een herhaal blok.
+3. Als laatste, laten we iedere explosie toenemen in grootte gedurende een korte tijd. In plaats van 1 tel te wachten, zetten we de grootte van de sprite op 5% voordat we die laten verschijnen. En vanaf dat die verschijnt, laten we de grootte vijftig keer toenemen met 2 door middel van een herhaal blok.
 
 ```scratch
 	wanneer ik signaal explodeer ontvang
@@ -170,19 +170,20 @@ Heeft elke raket een explosie met een ander uiterlijk?
 		(eindig herhaal)
 	verdwijn
 ```
+
 ###Test Je Project
 __Klik op het groene vlaggetje.__
 
 Neemt het beeld van de explosie geleidelijk toe vanuit het midden van de raket?
 
 ###Om te proberen
-Waarom niet elke explosie nog unieker maken door de grootte en de snelhied van de explosie te laten afwisselen?
+Waarom niet elke explosie nog unieker maken door de grootte en de snelheid van de explosie te laten afwisselen?
 
 Sla je project op.
 
 ##STAP 4: De bug van het signaal zenden herstellen
 Weet je nog dat we eerder een bug hadden als we de muis ingedrukt hielden?
-Dit gebeurt omdat wanneer de raket haar explosie signaal zendt, ze onmiddelijk de als lus zal herhalen en een nieuw explsie signaal zal uitzenden, nog voor dat de vorige explosie klaar was.
+Dit gebeurt omdat wanneer de raket haar explosie signaal zendt, ze onmiddelijk de als lus zal herhalen en een nieuw exploseer signaal zal uitzenden, nog voor dat de vorige explosie klaar was.
 
 
 1. Om dit te herstellen, kunnen we het zend signaal blok vervangen door een zend signaal en wacht blok. Op deze manier zal de lus niet herhalen tot dat de explosie klaar is met afspelen.
