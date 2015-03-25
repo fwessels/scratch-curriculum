@@ -170,7 +170,7 @@ Om het tweede probleem op te lossen moeten we het herhaal tot blok van de __vraa
 	maak antwoord uiterlijk #
 	maak score 110
 	maak gewonnen 0
-	herhaal tot score = 0
+	herhaal tot score = 0 of gewonnen = 1
 		verander score met -10
 		zet pixeleren effect op score
 		zet kleur effect op score
